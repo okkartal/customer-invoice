@@ -6,7 +6,9 @@ namespace Server.Models
     { 
 
         public string Description { get; set; }
+        [Required, Range(1,100)]
         public int Quantity { get; set; }
+        [Required]
         public decimal Price { get; set; }
 
         public decimal Discount { get; set; }

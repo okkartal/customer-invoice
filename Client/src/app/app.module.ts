@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -17,6 +18,7 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { InvoicesComponent } from './components/invoices/invoices.component';
 import { EditInvoicesComponent } from './components/edit-invoices/edit-invoices.component';
+import { CustomerListComponent } from './components/shared/customer-list/customer-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { EditInvoicesComponent } from './components/edit-invoices/edit-invoices.
     CustomersComponent,
     EditCustomerComponent,
     InvoicesComponent,
-    EditInvoicesComponent 
+    EditInvoicesComponent,
+    CustomerListComponent 
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { EditInvoicesComponent } from './components/edit-invoices/edit-invoices.
     AppRoutingModule,
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule, MatToolbarModule, MatCardModule, MatInputModule, MatListModule,  MatTableModule, MatSelectModule
+    MatButtonModule, MatToolbarModule, MatCardModule, MatInputModule, MatListModule,  MatTableModule, MatSelectModule, MatCheckboxModule
     
   ],
   providers: [],

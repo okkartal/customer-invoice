@@ -1,25 +1,25 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ICustomer } from 'src/app/models/ICustomer';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router'; 
 import { IInvoice } from 'src/app/models/IInvoice';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-invoices',
-  templateUrl: './invoices.component.html' 
+  templateUrl: './invoices.component.html',
+  styles:[`table {  width: 80%;  }
+   
+  .allInvoices-container {  padding: 20px;  }`
+]
 })
 export class InvoicesComponent {
   constructor(public api : ApiService, private router: Router) {} 
   
-  invoices: IInvoice[] = [];
-  customers: ICustomer[] = [];
-  customer: string;
+  invoices: IInvoice[] = []; 
+  selectedCustomer: string;
   
-  ngOnInit(): void {
-    this.api.customers().subscribe((data) => this.customers = data);
-  } 
-
-  
+  edit(id: string) {
+    this.router.navigate(['invoice/',id]);
+  }
   
   delete(id: string) {
     
@@ -27,9 +27,16 @@ export class InvoicesComponent {
       return ;
     }
     this.api.deleteInvoice(id)
-    .subscribe(() => this.router.navigate(['invoices']));
+    .subscribe(() => this.loadInvoices());
    }
 
-   customerChangeAction(customer: string) {}
-    
+   customerChange($event:any) {
+    this.selectedCustomer = $event;
+    this.loadInvoices();
+   } 
+
+   loadInvoices(){
+    this.api.invoices(this.selectedCustomer)
+    .subscribe((data) => this.invoices = data);
+   }
 } 

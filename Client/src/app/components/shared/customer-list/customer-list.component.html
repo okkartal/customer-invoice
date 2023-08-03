@@ -1,0 +1,6 @@
+
+<mat-form-field>
+<mat-select placeholder="Select a customer" name="customer" (valueChange)="customerChangeAction($event)">
+    <mat-option *ngFor="let customer of customers" [value]="customer.id" >{{ customer.name }}</mat-option>
+  </mat-select>
+  </mat-form-field>

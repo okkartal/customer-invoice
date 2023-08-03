@@ -12,7 +12,8 @@ const routes = [
   { path :'customer', component: EditCustomerComponent}, 
   { path :'customer/:id', component: EditCustomerComponent}, 
   { path :'invoices', component: InvoicesComponent},
-  { path :'invoices/:id', component: EditInvoicesComponent},
+  { path :'invoice', component: EditInvoicesComponent},
+  { path :'invoice/:id', component: EditInvoicesComponent},
 ]
 
 @NgModule({

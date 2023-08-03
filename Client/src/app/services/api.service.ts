@@ -43,7 +43,7 @@ export class ApiService {
   }
 
   invoices(customerId: string) {
-    return this.http.get<ICustomer[]>(`${environment.apiUrl}/invoices/${customerId}`);
+    return this.http.get<IInvoice[]>(`${environment.apiUrl}/invoice/invoices/${customerId}`);
   } 
 
   invoice(id:string) : Observable<IInvoice>{

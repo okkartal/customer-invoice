@@ -1,5 +1,4 @@
-import { IBaseEntity } from "./IBaseEntity";
-import { ICustomer } from "./ICustomer";
+import { IBaseEntity } from "./IBaseEntity"; 
 
 export interface IInvoice  extends IBaseEntity{
     description: string,
@@ -8,6 +7,6 @@ export interface IInvoice  extends IBaseEntity{
     discount: number,
     total: number,
     grandTotal: number,
-    isPaid: number,
-    customer: ICustomer, 
+    isPaid: boolean,
+    customerId: string 
 }
