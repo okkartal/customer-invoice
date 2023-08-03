@@ -3,8 +3,8 @@
 namespace Server.Models
 {
     public class Invoice : BaseEntity
-    { 
-
+    {
+        [Required,MaxLength(100)]
         public string Description { get; set; }
         [Required, Range(1,100)]
         public int Quantity { get; set; }

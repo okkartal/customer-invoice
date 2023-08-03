@@ -4,12 +4,13 @@ namespace Server.Models
 {
     public class Customer : BaseEntity
     { 
-        [Required]
+        [Required,MaxLength(50)]
         public string Name { get; set; }
 
-        [Required]
-        public string Address { get; set; }
-
+        [Required, MaxLength(50)]
         public string Phone { get; set; }
+
+        [Required,MaxLength(100)]
+        public string Address { get; set; }
     }
 }

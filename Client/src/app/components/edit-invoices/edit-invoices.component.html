@@ -1,63 +1,64 @@
 <div class="container edit-invoice-container">
-    <div>
-      <mat-card>
-        <h3 style="text-align: center">
-            <span *ngIf="invoiceForm.id !== '0'">Edit Invoice</span>
-            <span *ngIf="invoiceForm.id === '0'">Add New Invoice</span></h3>
-        <div *ngIf="invoiceForm.id !== '0'">
-          <mat-form-field appearance="outline" class="form-element">
-            <mat-label>Customer</mat-label>
-            <input matInput type="text" [(ngModel)] ="invoiceForm.customerName" readonly="true" />
-          </mat-form-field>
-        </div>
-        <div *ngIf="invoiceForm.id === '0'">
-          <app-customer-list  (selectedCustomerEvent)="customerChange($event)"></app-customer-list> 
-        </div>
-            <div>
-          <mat-form-field appearance="outline" class="form-element">
-            <mat-label>Description</mat-label>
-            <input matInput type="text" [(ngModel)] ="invoiceForm.description" />
-          </mat-form-field>
-        </div>
-  
-        <div>
-          <mat-form-field appearance="outline" class="form-element">
-            <mat-label>Quantity</mat-label>
-            <input matInput type="number" [(ngModel)] ="invoiceForm.quantity" (change)="calculateTotal()"/>
-          </mat-form-field>
-        </div>
-          <div>
-          <mat-form-field appearance="outline" class="form-element">
-            <mat-label>Price</mat-label>
-            <input matInput  type="number" [(ngModel)] ="invoiceForm.price" (change)="calculateTotal()"/>
-          </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="outline" class="form-element">
-              <mat-label>Discount(%)</mat-label>
-              <input matInput  type="number" [(ngModel)] ="invoiceForm.discount"  (change)="calculateGrandTotal()"/>
-            </mat-form-field>
-          </div> 
-          <div>
-            <mat-form-field appearance="outline" class="form-element">
-              <mat-label>Total</mat-label>
-              <input matInput readonly="true"   [(ngModel)] ="invoiceForm.total"/>
-            </mat-form-field>
-          </div>
-          <div>
-               <mat-label>Status</mat-label>
-              <mat-checkbox class="example-margin" [(ngModel)]="invoiceForm.status"></mat-checkbox><br />
-          </div>
-          <div>
-            <mat-form-field appearance="outline" class="form-element">
-              <mat-label>Grand Total Total</mat-label>
-              <input matInput  readonly="true"  [(ngModel)] ="invoiceForm.grandTotal"/>
-            </mat-form-field>
-          </div>
-        <div>
-          <button *ngIf="invoiceForm.id !== '0'" mat-raised-button color="primary" (click)="update()">Update</button>
-          <button *ngIf="invoiceForm.id === '0'" mat-raised-button color="primary" (click)="add()">Add</button>
-        </div>
-      </mat-card>
-    </div>
+  <div>
+    <mat-card>
+      <h3 style="text-align: center">
+        <span *ngIf="invoiceForm.id !== '0'">Edit Invoice</span>
+        <span *ngIf="invoiceForm.id === '0'">Add New Invoice</span>
+      </h3>
+      <div *ngIf="invoiceForm.id !== '0'">
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Customer</mat-label>
+          <input matInput type="text" [(ngModel)]="invoiceForm.customerName" readonly="true" />
+        </mat-form-field>
+      </div>
+      <div *ngIf="invoiceForm.id === '0'">
+        <app-customer-list (selectedCustomerEvent)="customerChange($event)"></app-customer-list>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Description</mat-label>
+          <input matInput type="text" [(ngModel)]="invoiceForm.description" maxlength="100" required="true" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Quantity</mat-label>
+          <input matInput type="number" [(ngModel)]="invoiceForm.quantity" (change)="calculateTotal()" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Price</mat-label>
+          <input matInput type="number" [(ngModel)]="invoiceForm.price" (change)="calculateTotal()" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Discount(%)</mat-label>
+          <input matInput type="number" [(ngModel)]="invoiceForm.discount" (change)="calculateGrandTotal()" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Total</mat-label>
+          <input matInput readonly="true" [(ngModel)]="invoiceForm.total" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-label>Status</mat-label>
+        <mat-checkbox class="example-margin" [(ngModel)]="invoiceForm.status"></mat-checkbox><br />
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Grand Total Total</mat-label>
+          <input matInput readonly="true" [(ngModel)]="invoiceForm.grandTotal" />
+        </mat-form-field>
+      </div>
+      <div>
+        <button *ngIf="invoiceForm.id !== '0'" mat-raised-button color="primary" (click)="update()">Update</button>
+        <button *ngIf="invoiceForm.id === '0'" mat-raised-button color="primary" (click)="add()">Add</button>
+      </div>
+    </mat-card>
   </div>
+</div>
