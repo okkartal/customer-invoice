@@ -4,10 +4,7 @@ using Server.Models;
 
 namespace Server.Controllers
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class InvoiceController : ControllerBase
+      public class InvoiceController : BaseController
     {
         private readonly IInvoiceService _invoiceService;
 

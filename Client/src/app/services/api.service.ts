@@ -14,16 +14,21 @@ export class ApiService {
 
   getHeaders(): HttpHeaders {
     let headers = new HttpHeaders() 
+      .set('X-API-KEY', environment.apiKey)
       .set('Content-Type', 'application/json');
     return headers;
   }
 
   customers() {
-    return this.http.get<ICustomer[]>(`${environment.apiUrl}/customer`);
+    return this.http.get<ICustomer[]>(`${environment.apiUrl}/customer`,{
+      headers: this.getHeaders(),
+    });
   } 
 
   customer(id:string) : Observable<ICustomer>{
-    return this.http.get<ICustomer>(`${environment.apiUrl}/customer/${id}`);
+    return this.http.get<ICustomer>(`${environment.apiUrl}/customer/${id}`,{
+      headers: this.getHeaders(),
+    });
   } 
 
   addCustomer(customer : ICustomer) {
@@ -39,18 +44,24 @@ export class ApiService {
   }
 
   deleteCustomer(id: string) {
-    return this.http.delete(`${environment.apiUrl}/customer/${id}`);
+    return this.http.delete(`${environment.apiUrl}/customer/${id}`,{
+      headers: this.getHeaders(),
+    });
   }
 
   invoices(customerId: string) {
-    return this.http.get<IInvoice[]>(`${environment.apiUrl}/invoice/invoices/${customerId}`);
+    return this.http.get<IInvoice[]>(`${environment.apiUrl}/invoice/invoices/${customerId}`,{
+      headers: this.getHeaders(),
+    });
   } 
 
   invoice(id:string) : Observable<IInvoice>{
-    return this.http.get<IInvoice>(`${environment.apiUrl}/invoice/${id}`);
+    return this.http.get<IInvoice>(`${environment.apiUrl}/invoice/${id}`,{
+      headers: this.getHeaders(),
+    });
   } 
 
-  addInvoice(invoice : IInvoice) {
+  addInvoice(invoice : IInvoice) { 
     return this.http.post(`${environment.apiUrl}/invoice`, invoice,  {
       headers: this.getHeaders(),
     });
@@ -63,7 +74,9 @@ export class ApiService {
   }
 
   deleteInvoice(id: string) {
-    return this.http.delete(`${environment.apiUrl}/invoice/${id}`);
+    return this.http.delete(`${environment.apiUrl}/invoice/${id}`,{
+      headers: this.getHeaders(),
+    });
   }
   
 }

@@ -59,8 +59,8 @@ export class EditInvoicesComponent {
   }
 
   add(){  
-    if(this.selectedCustomer === '0') {
-      alert('PLease select a customer');
+     if(this.selectedCustomer === undefined) {
+      alert('Please select a customer');
       return;
     }
     this.invoiceForm.id =  Guid.create().toString();  
