@@ -20,7 +20,6 @@ namespace Server.Security
             {
                 context.Result = new UnauthorizedResult();
             }
-
         }
 
         private static string GetReceivedApiKey(HttpContext context)

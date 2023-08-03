@@ -7,7 +7,6 @@ namespace Server.Controllers
     [ApiKey]
     [Produces("application/json")]
     [Route("api/[controller]")]
-
     public class BaseController : ControllerBase
     { 
     }
