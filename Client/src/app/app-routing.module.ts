@@ -7,13 +7,13 @@ import { EditInvoicesComponent } from './components/edit-invoices/edit-invoices.
 import { InvoicesComponent } from './components/invoices/invoices.component';
 
 const routes = [
-  { path :'', component: CustomersComponent},
-  { path :'customers', component: CustomersComponent},
-  { path :'customer', component: EditCustomerComponent}, 
-  { path :'customer/:id', component: EditCustomerComponent}, 
-  { path :'invoices', component: InvoicesComponent},
-  { path :'invoice', component: EditInvoicesComponent},
-  { path :'invoice/:id', component: EditInvoicesComponent},
+  { path: '', component: CustomersComponent },
+  { path: 'customers', component: CustomersComponent },
+  { path: 'customer', component: EditCustomerComponent },
+  { path: 'customer/:id', component: EditCustomerComponent },
+  { path: 'invoices', component: InvoicesComponent },
+  { path: 'invoice', component: EditInvoicesComponent },
+  { path: 'invoice/:id', component: EditInvoicesComponent },
 ]
 
 @NgModule({

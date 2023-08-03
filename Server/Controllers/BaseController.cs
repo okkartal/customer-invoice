@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Server.Business.Contracts;
 using Server.Security;
 
 namespace Server.Controllers

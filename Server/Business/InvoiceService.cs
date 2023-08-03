@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Server.Business.Contracts;
 using Server.Data;
-using Server.Models; 
+using Server.Models;
 
 namespace Server.Business
 {

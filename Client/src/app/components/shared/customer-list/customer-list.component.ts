@@ -4,12 +4,12 @@ import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-customer-list',
-  templateUrl: './customer-list.component.html' 
+  templateUrl: './customer-list.component.html'
 })
 export class CustomerListComponent {
 
-  constructor(public api : ApiService) {}
-   
+  constructor(public api: ApiService) { }
+
   editCustomerId: string = '';
   @Output() selectedCustomerEvent = new EventEmitter<string>();
 
@@ -17,9 +17,9 @@ export class CustomerListComponent {
 
   ngOnInit(): void {
     this.api.customers().subscribe((data) => this.customers = data);
-  }  
+  }
 
   customerChangeAction(value: string) {
     this.selectedCustomerEvent.emit(value);
-   } 
+  }
 }

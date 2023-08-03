@@ -17,39 +17,39 @@ import { ApiService } from 'src/app/services/api.service';
   `]
 })
 export class EditCustomerComponent {
-  
-   customerForm: ICustomer = {
+
+  customerForm: ICustomer = {
     id: '0',
-    name : '',
+    name: '',
     address: '',
     phone: '',
     created: new Date()
   };
-   
 
-  constructor(public api : ApiService,private route: ActivatedRoute, private router: Router) {} 
 
-  ngOnInit(){
-    var id = this.route.snapshot.params['id'] ?? '0'; 
-    if(id !== '0') {
+  constructor(public api: ApiService, private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
+    var id = this.route.snapshot.params['id'] ?? '0';
+    if (id !== '0') {
       this.getById(id);
     }
-     
+
   }
 
-  getById(id:string) {
+  getById(id: string) {
     this.api.customer(id).subscribe((data) => this.customerForm = data);
   }
 
-  update(){ 
+  update() {
     this.api.updateCustomer(this.customerForm.id, this.customerForm)
-    .subscribe(() => this.router.navigate(['customers'])); 
+      .subscribe(() => this.router.navigate(['customers']));
   }
 
-  add(){ 
-    this.customerForm.id =  Guid.create().toString(); 
+  add() {
+    this.customerForm.id = Guid.create().toString();
     this.api.addCustomer(this.customerForm)
-    .subscribe(() => this.router.navigate(['customers']));
-     
+      .subscribe(() => this.router.navigate(['customers']));
+
   }
 }

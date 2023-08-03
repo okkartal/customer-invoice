@@ -4,7 +4,7 @@ using Server.Models;
 
 namespace Server.Controllers
 {
-      public class InvoiceController : BaseController
+    public class InvoiceController : BaseController
     {
         private readonly IInvoiceService _invoiceService;
 

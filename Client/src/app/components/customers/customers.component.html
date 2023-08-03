@@ -3,18 +3,18 @@
 </div>
 <div class="container allCustomers-container">
   <table mat-table [dataSource]="allCustomersSource" class="mat-elevation-z8">
-     
-    
+
+
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
- 
+
     <ng-container matColumnDef="phone">
       <th mat-header-cell *matHeaderCellDef>Phone</th>
       <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
     </ng-container>
- 
+
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef>Address</th>
       <td mat-cell *matCellDef="let element">{{ element.address }}</td>
@@ -27,12 +27,14 @@
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>Edit&nbsp;&nbsp;&nbsp;Delete</th>
-      <td mat-cell *matCellDef="let element"><a routerLink="/customer/{{element.id}}"><mat-icon>edit</mat-icon></a>&nbsp;&nbsp;&nbsp;
-        <a href="#" (click)='delete(element.id)'><mat-icon>delete_forever</mat-icon></a></td>
+      <td mat-cell *matCellDef="let element"><a
+          routerLink="/customer/{{element.id}}"><mat-icon>edit</mat-icon></a>&nbsp;&nbsp;&nbsp;
+        <a href="#" (click)='delete(element.id)'><mat-icon>delete_forever</mat-icon></a>
+      </td>
     </ng-container>
- 
-     
- 
+
+
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>

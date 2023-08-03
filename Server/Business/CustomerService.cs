@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Server.Business.Contracts;
 using Server.Data;
-using Server.Models; 
+using Server.Models;
 
 namespace Server.Business
 {
@@ -55,8 +55,8 @@ namespace Server.Business
             
             if (entity == null)
                 return false;
-            var invoices = _dbContext.Invoices.Where(x => x.CustomerId == entity.Id);
-            _dbContext.Invoices.RemoveRange(invoices);
+
+            await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM Invoices WHERE CustomerId = {0}", customerId);
             _dbContext.Customers.Remove(entity);
             return await _dbContext.SaveChangesAsync() > 0;
         }
