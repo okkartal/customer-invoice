@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ICustomer } from 'src/app/models/ICustomer';
 import { ApiService } from 'src/app/services/api.service';
 

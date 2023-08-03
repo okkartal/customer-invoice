@@ -1,5 +1,4 @@
 import { IBaseEntity } from "./IBaseEntity";
-import { ICustomer } from "./ICustomer";
 
 export interface IInvoice extends IBaseEntity {
     description: string,
