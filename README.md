@@ -5,6 +5,26 @@
  Client Architecture  : Angular 16
  
  Storage Architecture : SQL Server 
+
+ Total and grandtotal values ​​are calculated automatically according to the entered quantity, price, and discount values.
+
+For Client Project Startup from command line
+
+```
+ cd Client
+ 
+ npm install
+ 
+ ng serve
+```
+
+For Server Project Startup from command line
+
+```
+ cd Server
+ 
+ dotnet run
+```
  
  ![image](https://github.com/okkartal/customer-invoice/assets/5641640/63401928-81b0-4207-862a-c24fde3e3506)
 ![image](https://github.com/okkartal/customer-invoice/assets/5641640/81116b2a-ed6f-4892-9475-92bdb1c447a6)
