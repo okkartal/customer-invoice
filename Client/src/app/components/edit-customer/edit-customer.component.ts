@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { ICustomer } from 'src/app/models/ICustomer';
-import { ApiService } from 'src/app/services/api.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-edit-customer',
@@ -27,7 +27,7 @@ export class EditCustomerComponent {
     created: new Date()
   };
 
-  constructor(public api: ApiService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private api: CustomerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     var id = this.route.snapshot.params['id'] ?? '0';

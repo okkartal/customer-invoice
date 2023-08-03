@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IInvoice } from 'src/app/models/IInvoice';
-import { ApiService } from 'src/app/services/api.service';
+import { InvoiceService } from 'src/app/services/invoice.service';
 
 @Component({
   selector: 'app-invoices',
@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./invoices.component.css']
 })
 export class InvoicesComponent {
-  constructor(public api: ApiService, private router: Router) { }
+  constructor(private api: InvoiceService, private router: Router) { }
 
   gridColumns = 3;
 

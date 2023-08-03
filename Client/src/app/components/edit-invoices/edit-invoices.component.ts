@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { IInvoice } from 'src/app/models/IInvoice';
-import { ApiService } from 'src/app/services/api.service';
+import { InvoiceService } from 'src/app/services/invoice.service';
 
 @Component({
   selector: 'app-edit-invoices',
@@ -25,7 +25,7 @@ export class EditInvoicesComponent {
     created: new Date()
   };
 
-  constructor(public api: ApiService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private api: InvoiceService, private route: ActivatedRoute, private router: Router) { }
   selectedCustomer: string;
   ngOnInit() {
     var id = this.route.snapshot.params['id'];

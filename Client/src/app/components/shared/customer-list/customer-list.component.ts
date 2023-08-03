@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ICustomer } from 'src/app/models/ICustomer';
-import { ApiService } from 'src/app/services/api.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class CustomerListComponent {
 
-  constructor(public api: ApiService) { }
+  constructor(private api: CustomerService) { }
 
   editCustomerId: string = '';
 

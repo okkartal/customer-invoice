@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICustomer } from 'src/app/models/ICustomer';
-import { ApiService } from 'src/app/services/api.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customers',
@@ -17,7 +17,7 @@ export class CustomersComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'address', 'phone', 'created', 'id'];
 
-  constructor(public api: ApiService, private router: Router) { }
+  constructor(private api: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
     this.get();
