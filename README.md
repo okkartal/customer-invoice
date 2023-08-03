@@ -1,8 +1,10 @@
 ﻿# customer-invoice 
 
  Server Architecture  : .NET 7 Web API
+ 
  Client Architecture  : Angular 16
- Storage Architectire : SQL Server 
+ 
+ Storage Architecture : SQL Server 
  
  ![image](https://github.com/okkartal/customer-invoice/assets/5641640/63401928-81b0-4207-862a-c24fde3e3506)
 ![image](https://github.com/okkartal/customer-invoice/assets/5641640/81116b2a-ed6f-4892-9475-92bdb1c447a6)
