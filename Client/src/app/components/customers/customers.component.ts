@@ -30,7 +30,6 @@ export class CustomersComponent implements OnInit {
   }
 
   delete(id: string) {
-
     if (!confirm("Do you really want to delete this record?")) {
       return;
     }

@@ -46,11 +46,9 @@ export class EditInvoicesComponent {
   update() {
     this.api.updateInvoice(this.route.snapshot.params['id'], this.invoiceForm)
       .subscribe(() => this.router.navigate(['invoices']));
-
   }
 
   add() {
-
     if (this.selectedCustomer === undefined) {
       alert('Please select a customer');
       return;

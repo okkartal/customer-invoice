@@ -26,7 +26,6 @@ export class InvoicesComponent {
   }
 
   delete(id: string) {
-
     if (!confirm("Do you really want to delete this record?")) {
       return;
     }
