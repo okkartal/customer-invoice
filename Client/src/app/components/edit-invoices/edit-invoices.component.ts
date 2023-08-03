@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./edit-invoices.component.css']
 })
 export class EditInvoicesComponent {
+
   invoiceForm: IInvoice = {
     id: '0',
     customerId: '',
@@ -23,7 +24,6 @@ export class EditInvoicesComponent {
     status: false,
     created: new Date()
   };
-
 
   constructor(public api: ApiService, private route: ActivatedRoute, private router: Router) { }
   selectedCustomer: string;
@@ -50,10 +50,12 @@ export class EditInvoicesComponent {
   }
 
   add() {
+
     if (this.selectedCustomer === undefined) {
       alert('Please select a customer');
       return;
     }
+
     this.invoiceForm.id = Guid.create().toString();
     this.invoiceForm.customerId = this.selectedCustomer;
     this.api.addInvoice(this.invoiceForm)

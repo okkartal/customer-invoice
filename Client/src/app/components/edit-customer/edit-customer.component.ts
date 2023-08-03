@@ -16,6 +16,7 @@ import { ApiService } from 'src/app/services/api.service';
 }
   `]
 })
+
 export class EditCustomerComponent {
 
   customerForm: ICustomer = {
@@ -26,7 +27,6 @@ export class EditCustomerComponent {
     created: new Date()
   };
 
-
   constructor(public api: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -34,7 +34,6 @@ export class EditCustomerComponent {
     if (id !== '0') {
       this.getById(id);
     }
-
   }
 
   getById(id: string) {
@@ -50,6 +49,5 @@ export class EditCustomerComponent {
     this.customerForm.id = Guid.create().toString();
     this.api.addCustomer(this.customerForm)
       .subscribe(() => this.router.navigate(['customers']));
-
   }
 }

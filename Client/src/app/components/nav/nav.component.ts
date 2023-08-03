@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'; 
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nav',
@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
                </mat-toolbar>`
 })
 
-export class NavComponent {  
+export class NavComponent {
 }

@@ -12,9 +12,10 @@ import { ApiService } from 'src/app/services/api.service';
   ]
 })
 export class CustomersComponent implements OnInit {
-  allCustomersSource: ICustomer[] = [];
-  displayedColumns: string[] = ['name', 'address', 'phone', 'created', 'id'];
 
+  allCustomersSource: ICustomer[] = [];
+
+  displayedColumns: string[] = ['name', 'address', 'phone', 'created', 'id'];
 
   constructor(public api: ApiService, private router: Router) { }
 
@@ -27,8 +28,6 @@ export class CustomersComponent implements OnInit {
       this.allCustomersSource = data;
     });
   }
-
-
 
   delete(id: string) {
 

@@ -11,6 +11,7 @@ export class CustomerListComponent {
   constructor(public api: ApiService) { }
 
   editCustomerId: string = '';
+
   @Output() selectedCustomerEvent = new EventEmitter<string>();
 
   customers: ICustomer[] = [];

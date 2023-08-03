@@ -10,8 +10,11 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class InvoicesComponent {
   constructor(public api: ApiService, private router: Router) { }
+
   gridColumns = 3;
+
   invoices: IInvoice[] = [];
+
   selectedCustomer: string;
 
   ngOnInit() {
