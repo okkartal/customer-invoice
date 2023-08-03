@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICustomer } from 'src/app/models/ICustomer';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -10,6 +10,7 @@ export class CustomerListComponent {
 
   constructor(public api : ApiService) {}
    
+  editCustomerId: string = '';
   @Output() selectedCustomerEvent = new EventEmitter<string>();
 
   customers: ICustomer[] = [];
@@ -20,5 +21,5 @@ export class CustomerListComponent {
 
   customerChangeAction(value: string) {
     this.selectedCustomerEvent.emit(value);
-   }
+   } 
 }

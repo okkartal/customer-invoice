@@ -5,7 +5,7 @@ namespace Server.Business.Contracts
     public interface IInvoiceService
     { 
         Task<Invoice> GetInvoiceAsync(Guid invoiceId);
-        IQueryable<Invoice> GetInvoicesAsync(Guid customerId);
+        IQueryable<Invoice> GetInvoicesAsync(Guid? customerId);
 
         Task<bool> Create(Invoice customer);
         Task<bool> Update(Invoice customer);

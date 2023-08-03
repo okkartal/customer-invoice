@@ -15,7 +15,7 @@ namespace Server.Models
         public decimal Total { get; set; }
         public decimal GrandTotal { get; set; } 
 
-        public bool IsPaid { get; set; }
+        public bool Status { get; set; }
 
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }

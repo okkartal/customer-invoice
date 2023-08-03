@@ -6,16 +6,17 @@ import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-invoices',
   templateUrl: './invoices.component.html',
-  styles:[`table {  width: 80%;  }
-   
-  .allInvoices-container {  padding: 20px;  }`
-]
+  styleUrls: ['./invoices.component.css'] 
 })
 export class InvoicesComponent {
   constructor(public api : ApiService, private router: Router) {} 
-  
+  gridColumns = 3;
   invoices: IInvoice[] = []; 
   selectedCustomer: string;
+
+  ngOnInit(){
+    this.loadInvoices();
+  }
   
   edit(id: string) {
     this.router.navigate(['invoice/',id]);

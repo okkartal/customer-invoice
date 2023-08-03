@@ -1,0 +1,32 @@
+table {
+    width: 80%;
+}
+
+.allInvoices-container {
+    padding: 20px;
+}
+
+mat-toolbar {
+    justify-content: space-between;
+}
+
+.content {
+    padding: 16px;
+}
+
+.content>mat-card {
+    margin-bottom: 16px;
+}
+
+.column-label {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.grid-item {
+    line-height: 40px;
+}

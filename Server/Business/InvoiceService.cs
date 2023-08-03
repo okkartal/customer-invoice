@@ -19,12 +19,14 @@ namespace Server.Business
          
         public async Task<Invoice?> GetInvoiceAsync(Guid invoiceId)
         {
-            return await _dbContext.Invoices.AsNoTracking().FirstOrDefaultAsync(x => x.Id == invoiceId);
+            return await _dbContext.Invoices.Include(x => x.Customer).AsNoTracking().FirstOrDefaultAsync(x => x.Id == invoiceId);
         } 
 
-        public   IQueryable<Invoice> GetInvoicesAsync(Guid customerId)
+        public   IQueryable<Invoice> GetInvoicesAsync(Guid? customerId)
         {
-            return   _dbContext.Invoices.Where(x => x.CustomerId == customerId).AsNoTracking();
+            if(customerId.HasValue)
+                return   _dbContext.Invoices.Where(x => x.CustomerId == customerId).OrderByDescending(x => x.Created).AsNoTracking();
+            return _dbContext.Invoices.OrderByDescending(x => x.Created).AsNoTracking();
         }
 
 

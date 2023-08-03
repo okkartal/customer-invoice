@@ -13,12 +13,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import {  MatTableModule } from '@angular/material/table'; 
 import { CustomersComponent } from './components/customers/customers.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { InvoicesComponent } from './components/invoices/invoices.component';
 import { EditInvoicesComponent } from './components/edit-invoices/edit-invoices.component';
 import { CustomerListComponent } from './components/shared/customer-list/customer-list.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,8 @@ import { CustomerListComponent } from './components/shared/customer-list/custome
     AppRoutingModule,
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule, MatToolbarModule, MatCardModule, MatInputModule, MatListModule,  MatTableModule, MatSelectModule, MatCheckboxModule
+    MatButtonModule, MatToolbarModule, MatCardModule, MatInputModule, MatListModule,  MatTableModule, MatSelectModule, MatCheckboxModule, MatIconModule,
+    FlexLayoutModule
     
   ],
   providers: [],

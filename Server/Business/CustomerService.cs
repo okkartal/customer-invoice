@@ -55,7 +55,8 @@ namespace Server.Business
             
             if (entity == null)
                 return false;
-           
+            var invoices = _dbContext.Invoices.Where(x => x.CustomerId == entity.Id);
+            _dbContext.Invoices.RemoveRange(invoices);
             _dbContext.Customers.Remove(entity);
             return await _dbContext.SaveChangesAsync() > 0;
         }
