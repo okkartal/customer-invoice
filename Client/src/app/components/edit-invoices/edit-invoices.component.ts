@@ -46,22 +46,47 @@ export class EditInvoicesComponent {
 
   getById(id:string) {
     this.api.invoice(id).subscribe((data) => this.invoiceForm = data);
+    this.selectedCustomer = this.invoiceForm.customerId;
   }
 
   update(){ 
     this.invoiceForm.customerId = this.selectedCustomer;
-    this.api.updateInvoice(this.invoiceForm.id, this.invoiceForm)
-    .subscribe(() => this.router.navigate(['invoices'])); 
+    
+    if(this.validate()){
+      this.api.updateInvoice(this.invoiceForm.id, this.invoiceForm)
+      .subscribe(() => this.router.navigate(['invoices'])); 
+    }
+    
   }
 
   add(){ 
     this.invoiceForm.customerId = this.selectedCustomer
     this.invoiceForm.id =  Guid.create().toString(); 
-    this.api.addInvoice(this.invoiceForm)
-    .subscribe(() => this.router.navigate(['invoices'])); 
+  
+    if(this.validate()){
+      this.api.addInvoice(this.invoiceForm)
+      .subscribe(() => this.router.navigate(['invoices'])); 
+    }
   }
 
   customerChange($event:any) {
     this.selectedCustomer = $event; 
+   }
+
+   validate(){
+    console.log(this.invoiceForm.customerId);
+    if(this.selectedCustomer === '' || this.selectedCustomer === undefined) {
+      alert("Please select a customer");
+      return false;
+    }
+    return true;
+   }
+
+   calculateTotal() {
+    this.invoiceForm.total = this.invoiceForm.quantity * this.invoiceForm.price;
+   }
+
+   calculateGrandTotal(){ 
+     this.invoiceForm.grandTotal = (this.invoiceForm.total - ((this.invoiceForm.total * this.invoiceForm.discount) / 100));
    }
 }
