@@ -21,7 +21,7 @@ import { InvoicesComponent } from './components/invoices/invoices.component';
 import { EditInvoicesComponent } from './components/edit-invoices/edit-invoices.component';
 import { CustomerListComponent } from './components/shared/customer-list/customer-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormatDatePipe } from './format-date-pipe';
+import { FormatDatePipe } from './format-date.pipe';
 @NgModule({
   declarations: [
     AppComponent,
