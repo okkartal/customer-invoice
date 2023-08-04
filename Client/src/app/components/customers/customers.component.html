@@ -20,9 +20,23 @@
       <td mat-cell *matCellDef="let element">{{ element.address }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="created">
-      <th mat-header-cell *matHeaderCellDef>Created Date</th>
-      <td mat-cell *matCellDef="let element">{{element.created | date:'dd/MM/yyyy HH:mm:ss':'GMT':'en-GB'}}</td>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *ngIf="element.status">check</mat-icon>
+        <mat-icon *ngIf="!element.status">cancel</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="creationDate">
+      <th mat-header-cell *matHeaderCellDef>Creation Date</th>
+      <td mat-cell *matCellDef="let element">{{element.creationDate | formatDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastModifiedDate">
+      <th mat-header-cell *matHeaderCellDef>Last Modified Date</th>
+      <td mat-cell *matCellDef=" let element">{{element.lastModifiedDate | formatDate}}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="id">

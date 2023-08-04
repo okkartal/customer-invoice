@@ -25,6 +25,10 @@
         </mat-form-field>
       </div>
       <div>
+        <mat-label>Status</mat-label>
+        <mat-checkbox class="example-margin" [(ngModel)]="customerForm.status"></mat-checkbox><br />
+      </div>
+      <div>
         <button *ngIf="customerForm.id !== '0'" mat-raised-button color="primary" (click)="update()">Update</button>
         <button *ngIf="customerForm.id === '0'" mat-raised-button color="primary" (click)="add()">Add</button>
       </div>

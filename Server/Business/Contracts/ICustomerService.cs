@@ -6,7 +6,7 @@ namespace Server.Business.Contracts
     {
         Task<bool> IsExistAsync(string customerName);
         Task<Customer> GetAsync(Guid customerId);
-        IQueryable<Customer> GetAsync();
+        IQueryable<Customer> GetAsync(bool? status);
 
         Task<bool> Create(Customer customer);
         Task<bool> Update(Customer customer);

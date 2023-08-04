@@ -24,7 +24,8 @@ export class EditCustomerComponent {
     name: '',
     address: '',
     phone: '',
-    created: new Date()
+    status: false,
+    creationDate: new Date()
   };
 
   constructor(private api: CustomerService, private route: ActivatedRoute, private router: Router) { }

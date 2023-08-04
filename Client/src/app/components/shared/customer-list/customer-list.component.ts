@@ -17,7 +17,7 @@ export class CustomerListComponent {
   customers: ICustomer[] = [];
 
   ngOnInit(): void {
-    this.api.customers().subscribe((data) => this.customers = data);
+    this.api.customers(true).subscribe((data) => this.customers = data);
   }
 
   customerChangeAction(value: string) {

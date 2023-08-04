@@ -21,9 +21,12 @@
             <div class="grid-item"><b>Discount</b> : {{invoice.discount}} %</div>
             <div class="grid-item"><b>Total</b> : {{invoice.total}}</div>
             <div class="grid-item"><b>Grand Total</b> : {{invoice.grandTotal}}</div>
-            <div class="grid-item"><b>Status</b> : <mat-icon *ngIf="invoice.status">check</mat-icon><mat-icon
-                *ngIf="!invoice.status">cancel</mat-icon></div>
-            <div class="grid-item"><b>Created Date</b> : {{invoice.created | date:'dd/MM/yyyy HH:mm:ss':'GMT':'en-GB'}}
+            <div class="grid-item"><b>Status</b> : <mat-icon *ngIf="invoice.status">check</mat-icon>
+              <mat-icon *ngIf="!invoice.status">cancel</mat-icon>
+            </div>
+            <div class="grid-item"><b>Creation Date</b> : {{invoice.creationDate | formatDate}}
+            </div>
+            <div class="grid-item"><b>Modified Date</b> : {{invoice.lastModifiedDate | formatDate}}
             </div>
           </div>
         </mat-card-content>
