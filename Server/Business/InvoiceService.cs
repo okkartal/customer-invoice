@@ -47,7 +47,7 @@ namespace Server.Business
 
         public async Task<bool> Delete(Guid invoiceId)
         {
-            var entity = await GetInvoiceAsync(invoiceId);
+            var entity = _dbContext.Invoices.Find(invoiceId);
             
             if (entity == null)
                 return false;

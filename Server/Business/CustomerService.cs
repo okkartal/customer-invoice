@@ -51,7 +51,7 @@ namespace Server.Business
 
         public async Task<bool> Delete(Guid customerId)
         {
-            var entity = await GetAsync(customerId);
+            var entity = _dbContext.Customers.Find(customerId);
             
             if (entity == null)
                 return false;
