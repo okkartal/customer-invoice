@@ -15,7 +15,7 @@ export class CustomersComponent implements OnInit {
 
   allCustomersSource: ICustomer[] = [];
 
-  displayedColumns: string[] = ['name', 'address', 'phone', 'created', 'id'];
+  displayedColumns: string[] = ['name', 'address', 'phone', 'creationDate', 'lastModifiedDate', 'id', 'status'];
 
   constructor(private api: CustomerService, private router: Router) { }
 

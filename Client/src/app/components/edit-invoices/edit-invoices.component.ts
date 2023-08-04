@@ -22,7 +22,7 @@ export class EditInvoicesComponent {
     total: 0,
     grandTotal: 0,
     status: false,
-    created: new Date()
+    creationDate: new Date()
   };
 
   constructor(private api: InvoiceService, private route: ActivatedRoute, private router: Router) { }

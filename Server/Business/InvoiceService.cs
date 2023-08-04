@@ -24,16 +24,16 @@ namespace Server.Business
 
         public   IQueryable<Invoice> GetInvoicesAsync(Guid? customerId)
         {
-            if(customerId.HasValue)
-                return   _dbContext.Invoices.Where(x => x.CustomerId == customerId).OrderByDescending(x => x.Created).AsNoTracking();
-            return _dbContext.Invoices.OrderByDescending(x => x.Created).AsNoTracking();
+            return (customerId.HasValue) ?
+                   _dbContext.Invoices.Where(x => x.CustomerId == customerId).OrderByDescending(x => x.LastModifiedDate).AsNoTracking() :
+             _dbContext.Invoices.OrderByDescending(x => x.LastModifiedDate).AsNoTracking();
         }
 
 
         public async Task<bool> Create(Invoice invoice)
         {
             invoice.Id = Guid.NewGuid();
-            invoice.Created = DateTime.Now;
+            invoice.CreationDate = DateTime.Now;
              _dbContext.Invoices.Add(invoice);
             return await _dbContext.SaveChangesAsync() > 0;
         }
@@ -41,6 +41,7 @@ namespace Server.Business
 
         public async Task<bool> Update(Invoice invoice)
         {
+            invoice.LastModifiedDate = DateTime.Now;
             _dbContext.Invoices.Update(invoice);
             return await _dbContext.SaveChangesAsync() > 0;
         }

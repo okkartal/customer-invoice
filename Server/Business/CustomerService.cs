@@ -26,9 +26,11 @@ namespace Server.Business
             return await _dbContext.Customers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == customerId);
         } 
 
-        public   IQueryable<Customer> GetAsync()
+        public   IQueryable<Customer> GetAsync(bool? status)
         {
-            return   _dbContext.Customers.AsNoTracking();
+            return (status.HasValue) ?
+                _dbContext.Customers.Where(x => x.Status == status).OrderByDescending(x => x.LastModifiedDate).AsNoTracking() :
+            _dbContext.Customers.OrderByDescending(x => x.LastModifiedDate).AsNoTracking();
         }
 
 
@@ -36,15 +38,17 @@ namespace Server.Business
         {
             if (await IsExistAsync(customer.Name))
                 return false;
+           
             customer.Id = Guid.NewGuid();
-            customer.Created = DateTime.Now;
-             _dbContext.Customers.Add(customer);
+            customer.CreationDate = DateTime.Now; 
+            _dbContext.Customers.Add(customer);
             return await _dbContext.SaveChangesAsync() > 0;
         }
 
 
         public async Task<bool> Update(Customer customer)
         {
+            customer.LastModifiedDate = DateTime.Now;
             _dbContext.Customers.Update(customer);
             return await _dbContext.SaveChangesAsync() > 0;
         }
@@ -56,7 +60,7 @@ namespace Server.Business
             if (entity == null)
                 return false;
 
-            await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM Invoices WHERE CustomerId = {0}", customerId);
+            _dbContext.Database.ExecuteSqlRaw("DELETE FROM Invoices WHERE CustomerId = {0}", customerId);
             _dbContext.Customers.Remove(entity);
             return await _dbContext.SaveChangesAsync() > 0;
         }

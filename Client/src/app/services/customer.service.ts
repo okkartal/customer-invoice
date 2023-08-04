@@ -10,8 +10,8 @@ import { BaseService } from './base.service';
 
 export class CustomerService extends BaseService {
 
-  customers() {
-    return this.http.get<ICustomer[]>(`${environment.apiUrl}/customer`, {
+  customers(status?: boolean) {
+    return this.http.get<ICustomer[]>(`${environment.apiUrl}/customer?status=${status}`, {
       headers: this.getHeaders(),
     });
   }

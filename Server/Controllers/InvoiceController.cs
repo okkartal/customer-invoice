@@ -30,7 +30,8 @@ namespace Server.Controllers
                 status = invoiceDetail.Status,
                 customerId = invoiceDetail.CustomerId,
                 customerName = invoiceDetail.Customer.Name,
-                created = invoiceDetail.Created
+                creationDate = invoiceDetail.CreationDate,
+                lastModifiedDate = invoiceDetail.LastModifiedDate
             }));
         }
 
@@ -50,7 +51,9 @@ namespace Server.Controllers
                 grandTotal = invoiceDetail.GrandTotal,
                 status = invoiceDetail.Status,
                 customerId = invoiceDetail.CustomerId,
-                customerName = invoiceDetail.Customer.Name
+                customerName = invoiceDetail.Customer.Name,
+                creationDate = invoiceDetail.CreationDate,
+                lastModifiedDate = invoiceDetail.LastModifiedDate
             });
         }
 

@@ -1,4 +1,6 @@
 export interface IBaseEntity {
     id: string,
-    created: Date
+    creationDate: Date,
+    lastModifiedDate?: Date,
+    status: boolean
 }

@@ -14,9 +14,9 @@ namespace Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery]bool? status)
         {
-            return Ok(_customerService.GetAsync());
+            return Ok(_customerService.GetAsync(status));
         }
 
         [HttpGet("{id}")]
